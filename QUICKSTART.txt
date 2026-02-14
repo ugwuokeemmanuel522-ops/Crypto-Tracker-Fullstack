@@ -1,0 +1,113 @@
+╔══════════════════════════════════════════════════════════════╗
+║         CRYPTO TRACKER - QUICK START GUIDE                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+📋 PREREQUISITES:
+   ✓ Node.js installed
+   ✓ MongoDB running (local or Atlas)
+
+⚙️  SETUP (One Time):
+
+   1. Install backend dependencies:
+      cd server
+      npm install
+      cd ..
+
+   2. Configure MongoDB (if needed):
+      Edit server/.env and update MONGODB_URI
+      
+      For local MongoDB:
+      MONGODB_URI=mongodb://localhost:27017/crypto-auth
+      
+      For MongoDB Atlas:
+      MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/crypto-auth
+
+🚀 RUN THE APPLICATION:
+
+   Terminal 1 - Start Backend:
+   ──────────────────────────────
+   npm run server
+   
+   (Server will run on http://localhost:5000)
+   
+   
+   Terminal 2 - Start Frontend:
+   ──────────────────────────────
+   npm run dev
+   
+   (App will run on http://localhost:5173)
+
+
+📱 USAGE:
+
+   1. Open http://localhost:5173 in your browser
+   
+   2. Click "Sign Up" to create an account
+   
+   3. Log in with your credentials
+   
+   4. Browse cryptocurrencies (all users can see the list)
+   
+   5. Click on a coin to view details (protected - requires login)
+   
+   6. Logout when done
+
+
+🔐 AUTHENTICATION FEATURES:
+
+   ✓ User registration with validation
+   ✓ Secure login with password hashing
+   ✓ httpOnly cookie-based sessions (JWT)
+   ✓ Protected coin detail routes
+   ✓ Persistent authentication (refresh page stays logged in)
+   ✓ Logout with session cleanup
+
+
+📁 KEY FILES CREATED:
+
+   Backend (server/):
+   ├── server.js - Express server
+   ├── config/db.js - MongoDB connection
+   ├── models/User.js - User schema with password hashing
+   ├── routes/auth.js - Signup, login, logout, verify endpoints
+   ├── middleware/auth.js - JWT verification
+   └── .env - Configuration (MongoDB URI, JWT secret, etc.)
+   
+   Frontend (src/):
+   ├── pages/Login.jsx - Login page (NEW)
+   ├── context/AuthContext.jsx - Global auth state (NEW)
+   ├── api/auth.js - Auth API calls (NEW)
+   ├── components/ProtectedRoute.jsx - Route protection (NEW)
+   └── pages/Home.jsx - Updated with login/logout UI
+
+
+🛠️  TROUBLESHOOTING:
+
+   MongoDB not connected?
+   → Ensure MongoDB is running:
+     Windows: Check Services for "MongoDB"
+     Mac: brew services start mongodb-community
+     Atlas: Check connection string in server/.env
+   
+   CORS errors?
+   → Restart the backend server (Ctrl+C, then npm run server)
+   
+   Not staying logged in?
+   → Clear browser cookies and try again
+   
+   Port already in use?
+   → Kill the process using the port and restart
+
+
+📖 FULL DOCUMENTATION:
+
+   See AUTH_README.md for complete documentation including:
+   - Detailed API endpoints
+   - Security features
+   - Environment configuration
+   - Advanced troubleshooting
+
+
+═══════════════════════════════════════════════════════════════
+Need help? Check AUTH_README.md or create an issue!
+═══════════════════════════════════════════════════════════════
